@@ -15,21 +15,51 @@ Based on [tiny-reactive-dataflow](https://github.com/lukehutch/tiny-reactive-dat
 - [ ] Support redefinition of functions?
 - [ ] Add back [helpers for DOM binding](https://github.com/lukehutch/tiny-reactive-dataflow#connecting-dataflow-to-the-html-dom)? (Skipped for now, to focus on core functionality.)
 
+## Installation
 
-## Examples
+Use your package manager of choice:
 
-### Create dataflow
+```sh
+npm install @joakimstai/dataflow
+```
+
+```sh
+pnpm add @joakimstai/dataflow
+```
+
+```sh
+yarn add @joakimstai/dataflow
+```
+
+Then import using the appropriate method for your environment:
+
+```js
+import { Dataflow } from '@joakimstai/dataflow'
+```
+
+```js
+const { Dataflow } = require('@joakimstai/dataflow')
+```
+
+## Usage
+
+### Create a dataflow
+
+```ts
+const dataflow = new Dataflow()
+```
+
+Alternatively, define functions up front:
 
 ```ts
 const dataflow = new Dataflow({ out: (x, y) => x + y })
 ```
 
+### Define functions
+
 ```ts
-const dataflow = new Dataflow()
 dataflow.define({ out: (x, y) => x + y })
 ```
-
-`define` is the same as `register` in [tiny-reactive-dataflow](https://github.com/lukehutch/tiny-reactive-dataflow).
 
 ### Set values
 
