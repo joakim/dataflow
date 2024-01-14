@@ -11,16 +11,28 @@
     "graph",
     "dag"
   ],
+  "type": "module",
   "main": "dist/dataflow.js",
   "types": "dist/dataflow.d.ts",
   "files": [
     "/dist"
   ],
+  "homepage": "https://github.com/joakim/dataflow#readme",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/joakim/dataflow.git"
+  },
+  "bugs": {
+    "url": "https://github.com/joakim/dataflow/issues"
+  },
+  "engines": {
+    "pnpm": "^8.0.0"
+  },
   "scripts": {
-    "build-types": "./node_modules/.bin/tsc",
-    "build-full": "./node_modules/.bin/esbuild ./src/dataflow.ts --outfile=./dist/dataflow.js",
-    "build-minified": "./node_modules/.bin/esbuild ./src/dataflow.ts --outfile=./dist/dataflow-min.js --minify --sourcemap --target=es2020",
-    "build": "rm -r ./dist && pnpm run build-types && pnpm run build-full && pnpm run build-minified",
+    "build-types": "tsc",
+    "build-full": "esbuild ./src/dataflow.ts --outfile=./dist/dataflow.js",
+    "build-minified": "esbuild ./src/dataflow.ts --outfile=./dist/dataflow-min.js --minify --sourcemap --target=es2020",
+    "build": "rm -rf ./dist && pnpm run build-types && pnpm run build-full && pnpm run build-minified",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "devDependencies": {
