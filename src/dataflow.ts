@@ -7,7 +7,7 @@
  */
 
 /** Function node. */
-type Fn = (...args: unknown[]) => unknown
+type Fn = (...args: any[]) => unknown // eslint-disable-line
 type FnInternal = Fn & { numDirtyDeps: number }
 
 /** An error thrown by a function node during execution of the dataflow. */
