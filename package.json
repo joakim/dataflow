@@ -1,5 +1,5 @@
 {
-  "name": "dataflow",
+  "name": "@joakimstai/dataflow",
   "version": "0.1.0",
   "description": "A tiny reactive dataflow library for scheduling a DAG of async functions.",
   "author": "Joakim Stai",
