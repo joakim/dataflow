@@ -11,8 +11,8 @@
     "graph",
     "dag"
   ],
-  "main": "dist/index.js",
-  "types": "dist/index.d.ts",
+  "main": "dist/dataflow.js",
+  "types": "dist/dataflow.d.ts",
   "files": [
     "/dist"
   ],
