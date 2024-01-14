@@ -17,12 +17,19 @@
     "/dist"
   ],
   "scripts": {
+    "build-types": "./node_modules/.bin/tsc",
+    "build-full": "./node_modules/.bin/esbuild ./src/dataflow.ts --outfile=./dist/dataflow.js",
+    "build-minified": "./node_modules/.bin/esbuild ./src/dataflow.ts --outfile=./dist/dataflow-min.js --minify --sourcemap --target=es2020",
+    "build": "rm -r ./dist && pnpm run build-types && pnpm run build-full && pnpm run build-minified",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "devDependencies": {
     "@typescript-eslint/eslint-plugin": "^6.18.1",
     "@typescript-eslint/parser": "^6.18.1",
+    "esbuild": "^0.19.11",
     "eslint": "^8.56.0",
-    "eslint-plugin-tsdoc": "^0.2.17"
+    "eslint-plugin-tsdoc": "^0.2.17",
+    "terser": "^5.26.0",
+    "typescript": "^5.3.3"
   }
 }
