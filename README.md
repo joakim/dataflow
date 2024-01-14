@@ -7,12 +7,15 @@
 
 Based on [tiny-reactive-dataflow](https://github.com/lukehutch/tiny-reactive-dataflow), which was inspired by [topologica](https://github.com/datavis-tech/topologica). For now, see [tiny-reactive-dataflow](https://github.com/lukehutch/tiny-reactive-dataflow) for a thorough explanation on how it works.
 
-This is a work in progress. Roadmap:
+This library is a work in progress.
+
+#### Roadmap
 
 - [ ] Tests
 - [ ] Benchmarks
-- [ ] Documentation file
+- [ ] Documentation
 - [ ] Support redefinition of functions?
+- [ ] Add back [helpers for DOM binding](https://github.com/lukehutch/tiny-reactive-dataflow#connecting-dataflow-to-the-html-dom)? (Skipped for now, to focus on core functionality.)
 
 
 ## Examples
