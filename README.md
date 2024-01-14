@@ -28,7 +28,7 @@ dataflow.define({ out: (x, y) => x + y })
 ### Set values
 
 ```ts
-await dataflow.set({ x: 1, y: 2 });
+await dataflow.set({ x: 1, y: 2 })
 ```
 
 ### Get values

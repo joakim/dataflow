@@ -74,7 +74,7 @@ export class Dataflow {
    *
    * It's possible to define function nodes in the constructor, as an alternative to `define()`.
    *
-   *     const dataflow = new Dataflow({ a: (x, y) => x + y })
+   *     const dataflow = new Dataflow({ out: (x, y) => x + y })
    *
    * @param {Object} [functions] - An object of `name: function` pairs (optional).
    * @param {boolean} [debug=false] - Whether to log debug information to the console.
@@ -87,7 +87,7 @@ export class Dataflow {
   /**
    * Defines function nodes on the dataflow graph.
    *
-   *     dataflow.define({ a: (x, y) => x + y })
+   *     dataflow.define({ out: (x, y) => x + y })
    *
    * @param {Object} functions - An object of `name: function` pairs.
    */
@@ -135,7 +135,7 @@ export class Dataflow {
    * graph to settle before you read any of its values.
    *
    *     await dataflow.set();
-   *     const result = dataflow.values.a
+   *     const result = dataflow.values.out
    *
    * See also `get()`.
    *
@@ -379,7 +379,7 @@ export class Dataflow {
    *
    * It first waits for any dataflow change propagation to complete and for the graph to settle.
    *
-   *     const result = await dataflow.get('a')
+   *     const result = await dataflow.get('out')
    *
    * @param {string} name - The node's name.
    */
