@@ -1,5 +1,10 @@
 # Dataflow
 
+- Efficient async dataflow processing
+- Simple API
+- 365 LOC
+- No dependencies
+
 Based on [tiny-reactive-dataflow](https://github.com/lukehutch/tiny-reactive-dataflow), which was inspired by [topologica](https://github.com/datavis-tech/topologica). For now, see [tiny-reactive-dataflow](https://github.com/lukehutch/tiny-reactive-dataflow) for a thorough explanation on how it works.
 
 This is a work in progress. Roadmap:
