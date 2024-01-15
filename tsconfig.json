@@ -1,3 +1,4 @@
+// This only outputs the type declaration file, esbuild does the rest.
 {
   "compilerOptions": {
     "module": "amd", // https://github.com/Microsoft/TypeScript/issues/27117
@@ -6,5 +7,5 @@
     "emitDeclarationOnly": true,
     "outFile": "dist/dataflow.d.ts"
   },
-  "include": ["src/**/*"]
+  "include": ["src/*"]
 }
