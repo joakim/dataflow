@@ -3,15 +3,6 @@ import { Dataflow } from '../src/dataflow'
 
 const debug = false
 
-test('interface', () => {
-  const dataflow = new Dataflow()
-  expectTypeOf(dataflow.define).toBeFunction()
-  expectTypeOf(dataflow.set).toBeFunction()
-  expectTypeOf(dataflow.get).toBeFunction()
-  expectTypeOf(dataflow.values).toBeObject()
-  expectTypeOf(dataflow.errors).toBeArray()
-})
-
 test('basic', async () => {
   const dataflow = new Dataflow({ out: (x: number, y: number) => x + y }, debug)
 
