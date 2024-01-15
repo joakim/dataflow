@@ -147,7 +147,7 @@ export class Dataflow {
     // If set is called while a node's function is running, the update will be only be run after
     // the current complete dataflow update has completed.
     // This allows for dynamic dataflow, in batched mode.
-    this.updateBatches.enqueue(update)
+    this.updateBatches.push(update)
 
     // Don't process the updateBatches queue if there is already a Promise processing these batches
     if (!this.inProgress) {
@@ -158,7 +158,7 @@ export class Dataflow {
 
       // Continue running batches until there are none left (batches can be dynamically added)
       while (!this.updateBatches.isEmpty()) {
-        const updateBatch = this.updateBatches.dequeue()
+        const updateBatch = this.updateBatches.shift()
 
         // Find the downstream transitive closure from all nodes reachable from the nodes listed
         // in updateBatch, and count the number of dirty upstream dependencies for each node
@@ -392,35 +392,26 @@ export class Dataflow {
 /**
  * Internal queue datastructure.
  */
-class Queue {
+class Queue<T = unknown> {
+  private items: Array<T | undefined> = []
   private head = 0
   private tail = 0
-  private items: Map<number, unknown>
 
-  constructor() {
-    this.items = new Map()
+  /** Adds an item to the tail of the queue (enqueue). */
+  push(item: T) {
+    this.items[this.tail++] = item
   }
 
-  /** Adds one item to the tail of the queue. */
-  enqueue(item: unknown) {
-    this.items.set(this.tail++, item)
-  }
-
-  /** Removes one item from the head of the queue. */
-  dequeue() {
-    const item = this.items.get(this.head)
-    this.items.delete(this.head++)
+  /** Removes one item from the head of the queue (dequeue). */
+  shift() {
+    const item = this.items[this.head]
+    this.items[this.head++] = undefined
     return item
-  }
-
-  /** Number of items in the queue. */
-  size() {
-    return this.tail - this.head
   }
 
   /** Whether the queue is empty. */
   isEmpty() {
-    return this.tail == this.head
+    return this.tail === this.head
   }
 }
 
