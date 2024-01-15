@@ -30,9 +30,9 @@
   },
   "scripts": {
     "build-types": "tsc",
-    "build-full": "esbuild ./src/dataflow.ts --outfile=./dist/dataflow.js",
-    "build-minified": "esbuild ./src/dataflow.ts --outfile=./dist/dataflow-min.js --minify --sourcemap --target=es2020",
-    "build": "rm -rf ./dist && pnpm run build-types && pnpm run build-full && pnpm run build-minified",
+    "build-full": "esbuild ./src/dataflow.ts --outfile=./dist/dataflow.js --sourcemap=external",
+    "build-minify": "esbuild ./src/dataflow.ts --outfile=./dist/dataflow-min.js --minify --sourcemap=external --target=es2020",
+    "build": "rm -rf ./dist && pnpm run build-types && pnpm run build-full && pnpm run build-minify",
     "test": "vitest"
   },
   "devDependencies": {
