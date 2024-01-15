@@ -393,33 +393,34 @@ export class Dataflow {
  * Internal queue datastructure.
  */
 class Queue {
-  headIndex: number
-  tailIndex: number
-  items: { [index: number]: unknown }
+  private head = 0
+  private tail = 0
+  private items: Map<number, unknown>
 
   constructor() {
-    this.headIndex = 0
-    this.tailIndex = 0
-    this.items = {}
+    this.items = new Map()
   }
 
+  /** Adds one item to the tail of the queue. */
   enqueue(item: unknown) {
-    return (this.items[this.tailIndex++] = item)
+    this.items.set(this.tail++, item)
   }
 
+  /** Removes one item from the head of the queue. */
   dequeue() {
-    if (this.headIndex == this.tailIndex) {
-      throw new Error('Queue is empty')
-    }
-    return this.items[this.headIndex++]
+    const item = this.items.get(this.head)
+    this.items.delete(this.head++)
+    return item
   }
 
+  /** Number of items in the queue. */
   size() {
-    return this.tailIndex - this.headIndex
+    return this.tail - this.head
   }
 
+  /** Whether the queue is empty. */
   isEmpty() {
-    return this.tailIndex == this.headIndex
+    return this.tail == this.head
   }
 }
 
