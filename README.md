@@ -27,11 +27,11 @@ npm install @joakimstai/dataflow
 pnpm add @joakimstai/dataflow
 ```
 
-```sh
-yarn add @joakimstai/dataflow
-```
+## Usage
 
-Then import using the appropriate method for your environment:
+#### Importing
+
+Import using the appropriate method for your environment:
 
 ```js
 import { Dataflow } from '@joakimstai/dataflow'
@@ -41,9 +41,7 @@ import { Dataflow } from '@joakimstai/dataflow'
 const { Dataflow } = require('@joakimstai/dataflow')
 ```
 
-## Usage
-
-### Create a dataflow
+#### Create a dataflow
 
 ```ts
 const dataflow = new Dataflow()
@@ -55,19 +53,19 @@ Alternatively, define functions up front:
 const dataflow = new Dataflow({ out: (x, y) => x + y })
 ```
 
-### Define functions
+#### Define functions
 
 ```ts
 dataflow.define({ out: (x, y) => x + y })
 ```
 
-### Set values
+#### Set values
 
 ```ts
 await dataflow.set({ x: 1, y: 2 })
 ```
 
-### Get values
+#### Get values
 
 ```ts
 await dataflow.get('out') // 3
