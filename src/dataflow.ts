@@ -194,7 +194,7 @@ export class Dataflow {
           // For all (async) functions corresponding to dirty nodes,
           // fetch the cached value for all upstream deps (i.e. all params),
           // call the function, and collect the resulting promise.
-          const promises: Promise<unknown>[] = []
+          const promises: unknown[] = []
           const fnNames: string[] = []
           const fnArgs: unknown[][] = []
 
@@ -227,7 +227,7 @@ export class Dataflow {
             if (someArgChanged) {
               // Only call fn if at least one param value changed, to avoid repeating work
               // (i.e. implement memoization)
-              const promise = fn(...args) as Promise<unknown>
+              const promise = fn(...args)
 
               if (this.debug) {
                 console.log('Calling:', { [name]: paramNamesAndArgs }, promise)
