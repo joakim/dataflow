@@ -157,7 +157,7 @@ export class Dataflow {
       this.errors = []
 
       // Continue running batches until there are none left (batches can be dynamically added)
-      while (!this.updateBatches.isEmpty()) {
+      while (this.updateBatches.hasItems()) {
         const updateBatch = this.updateBatches.shift()
 
         // Find the downstream transitive closure from all nodes reachable from the nodes listed
@@ -271,7 +271,7 @@ export class Dataflow {
           }
         }
 
-        if (this.debug && !this.updateBatches.isEmpty()) {
+        if (this.debug && this.updateBatches.hasItems()) {
           console.log('Starting next dynamic dataflow batch')
         }
       }
@@ -409,9 +409,9 @@ class Queue<T = unknown> {
     return item
   }
 
-  /** Whether the queue is empty. */
-  isEmpty() {
-    return this.tail === this.head
+  /** Whether the queue is has any items. */
+  hasItems() {
+    return this.tail !== this.head
   }
 }
 
